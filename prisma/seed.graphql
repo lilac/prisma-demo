@@ -1,0 +1,14 @@
+mutation {
+    createUser(data: {
+        name: "Sarah",
+        posts: {
+            create: [
+                { title: "GraphQL is awesome" },
+                { title: "It really is" },
+                { title: "How to GraphQL is the best GraphQL tutorial" }
+            ]
+        }
+    }) {
+        id
+    }
+}
