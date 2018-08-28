@@ -1,7 +1,7 @@
 # Run
 To run the graphql server, issue the following command.
 ```bash
-node src/index.js
+node src/server.js
 ```
 
 # GraphQl playground

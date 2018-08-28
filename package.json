@@ -5,7 +5,13 @@
   "author": "lilac <cnjamesdeng@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "blog-components": "^1.0.0",
     "graphql-yoga": "^1.16.1",
-    "prisma-binding": "^2.1.4"
+    "prisma-binding": "^2.1.4",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "react-scripts": "^1.1.5"
   }
 }
