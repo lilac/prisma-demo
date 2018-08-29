@@ -6606,6 +6606,10 @@ ra-data-json-server@^2.2.2:
     query-string "~5.1.1"
     react-admin "^2.2.2"
 
+ra-language-chinese@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/ra-language-chinese/-/ra-language-chinese-2.0.4.tgz#6917796b55e2d43a5a75a113d3263c8ac518a86e"
+
 ra-language-english@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-2.2.0.tgz#ec8e24170f8f39f87d9974110f66329bdfcb9ea6"
