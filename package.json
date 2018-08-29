@@ -10,7 +10,10 @@
     "graphql": "^0.13.2",
     "graphql-yoga": "^1.16.1",
     "prisma-binding": "^2.1.4",
+    "prop-types": "^15.6.2",
+    "ra-data-json-server": "^2.2.2",
     "react": "^16.4.2",
+    "react-admin": "^2.2.2",
     "react-apollo": "^2.1.11",
     "react-dom": "^16.4.2"
   },
