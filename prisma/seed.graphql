@@ -3,9 +3,9 @@ mutation {
         name: "Sarah",
         posts: {
             create: [
-                { title: "GraphQL is awesome" },
-                { title: "It really is" },
-                { title: "How to GraphQL is the best GraphQL tutorial" }
+                { title: "GraphQL is awesome", content: "content" },
+                { title: "It really is", content: "content" },
+                { title: "How to GraphQL is the best GraphQL tutorial", content: "content" }
             ]
         }
     }) {
