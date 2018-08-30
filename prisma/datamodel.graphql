@@ -1,7 +1,7 @@
 type Agent {
   id: ID! @unique
   name: String!
-  posts: [Post!]!
+  posts: [Post!]! @relation(name: "PostAgent", onDelete: CASCADE)
 }
 
 type Post {
@@ -9,11 +9,12 @@ type Post {
   title: String!
   content: String!
   published: Boolean! @default(value: "false")
-  agent: Agent!
-  questions: [Question!]!
+  agent: Agent! @relation(name: "PostAgent", onDelete: SET_NULL)
+  questions: [Question!]! @relation(name: "QuestionAnswer", onDelete: CASCADE)
 }
 
 type Question {
   id: ID! @unique
   title: String!
+  answer: Post! @relation(name: "QuestionAnswer", onDelete: SET_NULL)
 }
