@@ -1,10 +1,10 @@
 import React from 'react';
 import {Admin, Resource} from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
 import {PostList, PostCreate, PostEdit} from './posts';
 import {UserList} from "./users";
 import Dashboard from './dashboard';
 import authProvider from './authProvider';
+import buildPrismaProvider from 'react-admin-prisma';
 
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
@@ -19,12 +19,34 @@ const messages = {
 };
 const i18nProvider = locale => messages[locale];
 
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
-const App = () =>
+const app = ({dataProvider}) =>
     <Admin title={zhDomain["title"]} dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}
            locale="zh" i18nProvider={i18nProvider}>
-        <Resource name="posts" list={PostList} create={PostCreate} edit={PostEdit} icon={PostIcon}/>
-        <Resource name="users" list={UserList} icon={UserIcon}/>
+        <Resource name="Post" list={PostList} create={PostCreate} edit={PostEdit} icon={PostIcon}/>
+        <Resource name="User" list={UserList} icon={UserIcon}/>
     </Admin>;
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { dataProvider: null };
+    }
+
+    componentDidMount() {
+        buildPrismaProvider({
+            clientOptions: { uri: 'http://localhost:4466/' }
+        }).then(dataProvider => this.setState({ dataProvider }));
+    }
+
+    render() {
+        const {dataProvider} = this.state;
+
+        if (!dataProvider) {
+            return <div>Loading</div>;
+        }
+        return app(this.state)
+    }
+}
 
 export default App;

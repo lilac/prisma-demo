@@ -19,7 +19,7 @@ import {
 const PostFilter = (props) => (
     <Filter {...props}>
         <TextInput label="search" source="q" alwaysOn />
-        <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+        <ReferenceInput label="User" source="author.id" reference="users" allowEmpty>
             <SelectInput optionText="name" />
         </ReferenceInput>
     </Filter>
@@ -29,11 +29,11 @@ export const PostList = (props) => (
     <List title="resources.posts.name" filters={<PostFilter/>} {...props}>
         <Datagrid>
             <TextField source="id"/>
-            <ReferenceField label="user" source="userId" reference="users">
+            <ReferenceField label="user" source="author.id" reference="User">
                 <TextField source="name"/>
             </ReferenceField>
             <TextField source="title"/>
-            <TextField source="body"/>
+            <TextField source="content"/>
             <EditButton/>
         </Datagrid>
     </List>
@@ -47,11 +47,11 @@ export const PostEdit = (props) => (
     <Edit title={<PostTitle/>} {...props}>
         <SimpleForm>
             <DisabledInput source="id"/>
-            <ReferenceInput label="User" source="userId" reference="users">
+            <ReferenceInput label="User" source="author.id" reference="User">
                 <SelectInput optionText="name"/>
             </ReferenceInput>
             <TextInput source="title"/>
-            <LongTextInput source="body"/>
+            <LongTextInput source="content"/>
         </SimpleForm>
     </Edit>
 );
@@ -59,11 +59,11 @@ export const PostEdit = (props) => (
 export const PostCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <ReferenceInput label="User" source="userId" reference="users">
+            <ReferenceInput label="User" source="author.id" reference="User">
                 <SelectInput optionText="name"/>
             </ReferenceInput>
             <TextInput source="title"/>
-            <LongTextInput source="body"/>
+            <LongTextInput source="content"/>
         </SimpleForm>
     </Create>
 );
