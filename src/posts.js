@@ -18,15 +18,15 @@ import {
 
 const PostFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="search" source="q" alwaysOn />
-        <ReferenceInput label="User" source="author.id" reference="users" allowEmpty>
+        <TextInput label="search" source="title_contains" alwaysOn />
+        <ReferenceInput label="user" source="author.id" reference="User" allowEmpty>
             <SelectInput optionText="name" />
         </ReferenceInput>
     </Filter>
 );
 
 export const PostList = (props) => (
-    <List title="resources.posts.name" filters={<PostFilter/>} {...props}>
+    <List title="resources.Post.name" filters={<PostFilter/>} {...props}>
         <Datagrid>
             <TextField source="id"/>
             <ReferenceField label="user" source="author.id" reference="User">
