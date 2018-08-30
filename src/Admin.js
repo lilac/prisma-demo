@@ -23,7 +23,7 @@ const app = ({dataProvider}) =>
     <Admin title={zhDomain["title"]} dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}
            locale="zh" i18nProvider={i18nProvider}>
         <Resource name="Post" list={PostList} create={PostCreate} edit={PostEdit} icon={PostIcon}/>
-        <Resource name="User" list={UserList} icon={UserIcon}/>
+        <Resource name="Agent" list={UserList} icon={UserIcon}/>
     </Admin>;
 
 class App extends React.Component {
@@ -35,7 +35,7 @@ class App extends React.Component {
 
     componentDidMount() {
         buildPrismaProvider({
-            clientOptions: { uri: 'http://localhost:4466/' }
+            clientOptions: { uri: this.props.uri }
         }).then(dataProvider => this.setState({ dataProvider }));
     }
 

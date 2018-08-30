@@ -1,10 +1,22 @@
 mutation {
-    createUser(data: {
+    createAgent(data: {
         name: "Sarah",
         posts: {
             create: [
-                { title: "GraphQL is awesome", content: "content" },
-                { title: "It really is", content: "content" },
+                { title: "GraphQL is awesome", content: "content", questions: {
+                    create: [
+                        { title: "How is GraphQL" },
+                        { title: "Is GraphQL good?"}
+                    ]
+                }
+                },
+                { title: "Prisma is nice", content: "content", questions: {
+                    create: [
+                        { title: "How is Prisma" },
+                        { title: "Is Prisma good?"}
+                    ]
+                }
+                },
                 { title: "How to GraphQL is the best GraphQL tutorial", content: "content" }
             ]
         }

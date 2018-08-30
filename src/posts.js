@@ -19,7 +19,7 @@ import {
 const PostFilter = (props) => (
     <Filter {...props}>
         <TextInput label="search" source="title_contains" alwaysOn />
-        <ReferenceInput label="user" source="author.id" reference="User" allowEmpty>
+        <ReferenceInput label="user" source="agent.id" reference="Agent" allowEmpty>
             <SelectInput optionText="name" />
         </ReferenceInput>
     </Filter>
@@ -28,8 +28,7 @@ const PostFilter = (props) => (
 export const PostList = (props) => (
     <List title="resources.Post.name" filters={<PostFilter/>} {...props}>
         <Datagrid>
-            <TextField source="id"/>
-            <ReferenceField label="user" source="author.id" reference="User">
+            <ReferenceField label="user" source="agent.id" reference="Agent">
                 <TextField source="name"/>
             </ReferenceField>
             <TextField source="title"/>
@@ -40,14 +39,14 @@ export const PostList = (props) => (
 );
 
 const PostTitle = ({record}) => {
-    return <span>Post {record ? `"${record.title}"` : ''}</span>;
+    return <span>{record ? `${record.title}` : ''}</span>;
 };
 
 export const PostEdit = (props) => (
     <Edit title={<PostTitle/>} {...props}>
         <SimpleForm>
             <DisabledInput source="id"/>
-            <ReferenceInput label="User" source="author.id" reference="User">
+            <ReferenceInput label="User" source="agent.id" reference="Agent">
                 <SelectInput optionText="name"/>
             </ReferenceInput>
             <TextInput source="title"/>
@@ -59,7 +58,7 @@ export const PostEdit = (props) => (
 export const PostCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <ReferenceInput label="User" source="author.id" reference="User">
+            <ReferenceInput label="User" source="agent.id" reference="Agent">
                 <SelectInput optionText="name"/>
             </ReferenceInput>
             <TextInput source="title"/>

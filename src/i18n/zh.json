@@ -8,6 +8,13 @@
         "content": "内容",
         "author": "作者"
       }
+    },
+    "Agent": {
+      "name": "助理",
+      "fields": {
+        "id": "编号",
+        "name": "名称"
+      }
     }
   },
   "search": "搜索",

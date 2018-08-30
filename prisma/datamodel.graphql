@@ -1,4 +1,4 @@
-type User {
+type Agent {
   id: ID! @unique
   name: String!
   posts: [Post!]!
@@ -9,5 +9,11 @@ type Post {
   title: String!
   content: String!
   published: Boolean! @default(value: "false")
-  author: User!
+  agent: Agent!
+  questions: [Question!]!
+}
+
+type Question {
+  id: ID! @unique
+  title: String!
 }
