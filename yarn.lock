@@ -6680,9 +6680,9 @@ ra-data-json-server@^2.2.2:
     query-string "~5.1.1"
     react-admin "^2.2.2"
 
-"ra-language-chinese@git+ssh://git@github.com:lilac/ra-language-chinese.git":
+"ra-language-chinese@https://github.com/lilac/ra-language-chinese.git":
   version "2.0.5"
-  resolved "git+ssh://git@github.com:lilac/ra-language-chinese.git#0242c6ed1757e8201af8cb4c060f135ff33c10fa"
+  resolved "https://github.com/lilac/ra-language-chinese.git#0242c6ed1757e8201af8cb4c060f135ff33c10fa"
 
 ra-language-english@^2.2.0:
   version "2.2.0"
