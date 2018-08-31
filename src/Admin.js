@@ -1,6 +1,7 @@
 import React from 'react';
 import {Admin, Resource} from 'react-admin';
-import {PostList, PostCreate, PostEdit} from './posts';
+import {PostList, PostCreate, PostEdit, PostShow} from './posts';
+import {QuestionCreate, QuestionEdit, QuestionList, QuestionShow} from "./questions";
 import {UserList} from "./users";
 import Dashboard from './dashboard';
 import authProvider from './authProvider';
@@ -8,6 +9,7 @@ import buildPrismaProvider from 'react-admin-prisma';
 
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
+import QAIcon from '@material-ui/icons/QuestionAnswer';
 
 import englishMessages from 'ra-language-english';
 import zhMessages from 'ra-language-chinese';
@@ -22,8 +24,10 @@ const i18nProvider = locale => messages[locale];
 const app = ({dataProvider}) =>
     <Admin title={zhDomain["title"]} dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}
            locale="zh" i18nProvider={i18nProvider}>
-        <Resource name="Post" list={PostList} create={PostCreate} edit={PostEdit} icon={PostIcon}/>
         <Resource name="Agent" list={UserList} icon={UserIcon}/>
+        <Resource name="Post" list={PostList} create={PostCreate} edit={PostEdit} icon={PostIcon} show={PostShow}/>
+        <Resource name="Question" list={QuestionList} create={QuestionCreate} edit={QuestionEdit} show={QuestionShow}
+            icon={QAIcon}/>
     </Admin>;
 
 class App extends React.Component {

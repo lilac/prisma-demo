@@ -6,7 +6,8 @@
         "id": "编号",
         "title": "标题",
         "content": "内容",
-        "author": "作者"
+        "agent.id": "助理",
+        "published": "已发布"
       }
     },
     "Agent": {
@@ -14,6 +15,14 @@
       "fields": {
         "id": "编号",
         "name": "名称"
+      }
+    },
+    "Question": {
+      "name": "问题",
+      "fields": {
+        "id": "编号",
+        "title": "标题",
+        "answer": "答案"
       }
     }
   },
