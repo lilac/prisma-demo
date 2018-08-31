@@ -13,12 +13,18 @@ import {
     SimpleForm,
     SimpleShowLayout,
     TextField,
-    TextInput
+    TextInput,
+    CardActions,
+    CreateButton,
+    ExportButton,
+    RefreshButton
 } from 'react-admin';
+
+const {cloneElement} = React;
 
 const QuestionFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="search" source="title_contains" alwaysOn />
+        <TextInput label="search" source="title_contains" alwaysOn/>
     </Filter>
 );
 
@@ -28,8 +34,46 @@ const AnswerReference = (props) => (
     </ReferenceField>
 );
 
+const Actions = ({
+                     basePath,
+                     bulkActions,
+                     currentSort,
+                     displayedFilters,
+                     exporter,
+                     filters,
+                     filterValues,
+                     onUnselectItems,
+                     resource,
+                     selectedIds,
+                     showFilter
+                 }) => (
+    <CardActions>
+        {bulkActions && cloneElement(bulkActions, {
+            basePath,
+            filterValues,
+            resource,
+            selectedIds,
+            onUnselectItems,
+        })}
+        {filters && cloneElement(filters, {
+            resource,
+            showFilter,
+            displayedFilters,
+            filterValues,
+            context: 'button',
+        })}
+        <ExportButton
+            resource={resource}
+            sort={currentSort}
+            filter={filterValues}
+            exporter={exporter}
+        />
+        <RefreshButton/>
+    </CardActions>
+);
+
 export const QuestionList = (props) => (
-    <List title="resources.Question.name" filters={<QuestionFilter/>} {...props}>
+    <List title="resources.Question.name" filters={<QuestionFilter/>} actions={<Actions/>} {...props}>
         <Datagrid>
             <TextField source="title"/>
             <AnswerReference label="resources.Question.fields.answer"/>
@@ -46,7 +90,7 @@ const QuestionTitle = ({record}) => {
 export const QuestionShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="title" />
+            <TextField source="title"/>
             <ReferenceField source="answer.id" reference="Post" label="resources.Question.fields.answer">
                 <TextField source="title"/>
             </ReferenceField>
