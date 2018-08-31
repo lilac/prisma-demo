@@ -12,7 +12,7 @@
     "prisma-binding": "^2.1.4",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.2.2",
-    "ra-language-chinese": "^2.0.4",
+    "ra-language-chinese": "git+ssh://git@github.com:lilac/ra-language-chinese.git",
     "ra-language-english": "^2.2.0",
     "react": "^16.4.2",
     "react-admin": "^2.2.2",

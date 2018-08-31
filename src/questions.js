@@ -15,7 +15,6 @@ import {
     TextField,
     TextInput,
     CardActions,
-    CreateButton,
     ExportButton,
     RefreshButton
 } from 'react-admin';
