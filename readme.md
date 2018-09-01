@@ -28,5 +28,5 @@ graphql playground
 # Import csv data
 Import questions and answers in csv to the prisma with the command
 ```bash
-node src/script.js AS-4000-train.csv
+node bin/import.js AS-4000-train.csv
 ```
